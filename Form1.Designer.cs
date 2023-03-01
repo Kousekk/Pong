@@ -35,6 +35,9 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.player1_score_label = new System.Windows.Forms.Label();
             this.player2_score_label = new System.Windows.Forms.Label();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.player1_pad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player2_pad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ball)).BeginInit();
@@ -105,6 +108,35 @@
             this.player2_score_label.Text = "0";
             this.player2_score_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // timer2
+            // 
+            this.timer2.Interval = 5000;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Gill Sans MT", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(858, 20);
+            this.label1.Name = "label1";
+            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label1.Size = new System.Drawing.Size(62, 51);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "0";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Gill Sans MT", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.ForeColor = System.Drawing.Color.Red;
+            this.label2.Location = new System.Drawing.Point(660, 20);
+            this.label2.Name = "label2";
+            this.label2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label2.Size = new System.Drawing.Size(213, 51);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Rychlost:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // Pong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -117,6 +149,8 @@
             this.Controls.Add(this.player1_pad);
             this.Controls.Add(this.player1_score_label);
             this.Controls.Add(this.player2_score_label);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.MaximumSize = new System.Drawing.Size(950, 600);
             this.MinimumSize = new System.Drawing.Size(950, 600);
             this.Name = "Pong";
@@ -140,6 +174,9 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label player1_score_label;
         private System.Windows.Forms.Label player2_score_label;
+        private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 
