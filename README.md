@@ -1,2 +1,2 @@
-# Pong69
- test
+# Pong
+ Easy C# game
