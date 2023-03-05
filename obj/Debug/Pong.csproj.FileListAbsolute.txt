@@ -9,3 +9,4 @@ C:\Users\kusyj\source\repos\Pong\obj\Debug\Pong.csproj.CoreCompileInputs.cache
 C:\Users\kusyj\source\repos\Pong\obj\Debug\Pong.exe
 C:\Users\kusyj\source\repos\Pong\obj\Debug\Pong.pdb
 C:\Users\kusyj\source\repos\Pong\obj\Debug\Pong.Pong.resources
+C:\Users\kusyj\source\repos\Pong\obj\Debug\Pong.Stats.resources

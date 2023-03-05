@@ -13,14 +13,17 @@ namespace Pong
 {   
     
     public partial class Pong : Form
-    {
+        
+    {   //need to read this variables in stats form
+        public static int player1_wins = 0;
+        public static int player2_wins = 0;
+
         // setting ball speed 
         int playerSpeed = 5;
         // variables for ball movement
         int ballx_coordinates = 3;
         int bally_coordinates = 3;
         // size variables
-        int bottomBoundary;
         int middleX;
         int middleY;
         //players movement detection
@@ -35,7 +38,10 @@ namespace Pong
         bool timerSwitch = false;
         //variable for timer 2 for speed switching
         int speed_level = 3;
-        bool timer_speed_switch = true;
+        //variable for max speed
+        public static int max_speed = 0;
+
+        
         public Pong()
         {
             InitializeComponent();
@@ -43,11 +49,8 @@ namespace Pong
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            bottomBoundary = ClientSize.Height;
             middleX = ClientSize.Width / 2;
-            middleY = ClientSize.Height / 2;
-            
-
+            middleY = ClientSize.Height / 2;        
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -59,7 +62,6 @@ namespace Pong
             if (ball.Top < 0 || ball.Bottom > ClientSize.Height)
             {
                 bally_coordinates = -(bally_coordinates); 
-
             }
             // check if ball hits player good side
             if (ball.Bounds.IntersectsWith(player1_pad.Bounds)|| ball.Bounds.IntersectsWith(player2_pad.Bounds))
@@ -75,6 +77,13 @@ namespace Pong
                     //counting and showing score
                     player2Score++;
                     player2_score_label.Text = player2Score.ToString();
+                    if (player2Score >= 10)
+                    {
+                        winner_label.Text = "Vítěz hráč č.2";
+                        timer1.Stop();
+                        timer2.Stop();
+                        player2_wins++;
+                    }
                 }
 
                 if (ball.Right > ClientSize.Width)
@@ -82,7 +91,14 @@ namespace Pong
                     //counting and showing score
                     player1Score++;
                     player1_score_label.Text = player1Score.ToString();
-                    
+                    if (player1Score >= 10)
+                    {
+                        winner_label.Text = "Vítěz hráč č.1";
+                        timer1.Stop();
+                        timer2.Stop();
+                        player1_wins++;
+                    }
+
                 }
                 
                 ball.Left = middleX;
@@ -128,6 +144,15 @@ namespace Pong
             if (e.KeyCode == Keys.Down) { player2Down = false; }
             if (e.KeyCode == Keys.Space)
             {
+                if ( player1Score >= 10 ||  player2Score >= 10)
+                {
+                    winner_label.Text = "";
+                    player1Score = 0;
+                    player2Score = 0;
+                    player1_score_label.Text = player1Score.ToString(); 
+                    player2_score_label.Text = player2Score.ToString();
+                }
+
                 timerSwitch = !timerSwitch;
                 if (timerSwitch)
                 {
@@ -140,6 +165,13 @@ namespace Pong
                     timer2.Stop(); 
                 }
             }
+            if (e.KeyCode == Keys.Escape)
+            {
+                Form stats_window = new Stats();
+                stats_window.Owner = this;
+                timer1.Stop();
+                stats_window.Show();
+            }
             
 
         }
@@ -147,6 +179,12 @@ namespace Pong
         private void timer2_Tick(object sender, EventArgs e)
         {   // each 5 seconds of the new ball is speed of the ball increased
             speed_level++;
+            if (speed_level > max_speed)
+            {
+                // -2 because basic speed is 3 but i need to show 1
+                max_speed = speed_level - 2;
+            }
+
         }
 
 

@@ -38,6 +38,7 @@
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.winner_label = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.player1_pad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player2_pad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ball)).BeginInit();
@@ -45,10 +46,8 @@
             // 
             // player1_pad
             // 
-            this.player1_pad.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.player1_pad.BackColor = System.Drawing.Color.Green;
+            this.player1_pad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.player1_pad.Location = new System.Drawing.Point(10, 255);
             this.player1_pad.MaximumSize = new System.Drawing.Size(20, 90);
             this.player1_pad.MinimumSize = new System.Drawing.Size(20, 90);
@@ -63,6 +62,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.player2_pad.BackColor = System.Drawing.Color.Green;
+            this.player2_pad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.player2_pad.Location = new System.Drawing.Point(900, 255);
             this.player2_pad.MaximumSize = new System.Drawing.Size(20, 90);
             this.player2_pad.MinimumSize = new System.Drawing.Size(20, 90);
@@ -74,6 +74,7 @@
             // ball
             // 
             this.ball.BackColor = System.Drawing.Color.White;
+            this.ball.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ball.Location = new System.Drawing.Point(468, 293);
             this.ball.Name = "ball";
             this.ball.Size = new System.Drawing.Size(15, 15);
@@ -137,6 +138,16 @@
             this.label2.Text = "Rychlost:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // winner_label
+            // 
+            this.winner_label.AutoSize = true;
+            this.winner_label.Font = new System.Drawing.Font("Franklin Gothic Demi", 48F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.winner_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.winner_label.Location = new System.Drawing.Point(228, 244);
+            this.winner_label.Name = "winner_label";
+            this.winner_label.Size = new System.Drawing.Size(0, 101);
+            this.winner_label.TabIndex = 7;
+            // 
             // Pong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -144,6 +155,7 @@
             this.BackColor = System.Drawing.SystemColors.Desktop;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(932, 553);
+            this.Controls.Add(this.winner_label);
             this.Controls.Add(this.ball);
             this.Controls.Add(this.player2_pad);
             this.Controls.Add(this.player1_pad);
@@ -151,6 +163,7 @@
             this.Controls.Add(this.player2_score_label);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximumSize = new System.Drawing.Size(950, 600);
             this.MinimumSize = new System.Drawing.Size(950, 600);
             this.Name = "Pong";
@@ -163,6 +176,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.player2_pad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ball)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -177,6 +191,7 @@
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label winner_label;
     }
 }
 
